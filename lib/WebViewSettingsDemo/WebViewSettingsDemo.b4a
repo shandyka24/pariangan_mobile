@@ -1,0 +1,51 @@
+﻿Version=1.70
+IconFile=
+FullScreen=False
+IncludeTitle=True
+NumberOfModules=0
+Package=uk.co.martinpearman.b4a.webviewsettingsdemo
+Label=WebViewSettings Demo
+VersionCode=1
+VersionString=
+Orientation=unspecified
+CanInstallToExternalStorage=False
+DoNotOverwriteManifest=False
+NumberOfFiles=0
+NumberOfLibraries=2
+Library1=core
+Library2=webviewsettings
+@EndOfDesignText@
+'Activity module
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Dim WebView1 As WebView
+	Dim WebViewSettings1 As WebViewSettings
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	WebView1.Initialize("")
+	Activity.AddView(WebView1, 0, 0, -1, -1)
+	
+	WebViewSettings1.setSavePassword(WebView1, False)
+	
+	WebView1.LoadUrl("http://www.basic4ppc.com/forum/index.php")
+	
+	Log(WebViewSettings1.getSavePassword(WebView1))
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+
